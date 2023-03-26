@@ -16,7 +16,6 @@ class Modal extends Component {
   }
 
   componentWillUnmount() {
-    console.log('Unmounted');
     document.removeEventListener('keydown', this.props.escFunction);
     const overlay = document.querySelector('.overlay');
     overlay.removeEventListener('click', this.props.handleOverlayClick);

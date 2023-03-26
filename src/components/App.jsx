@@ -1,6 +1,5 @@
 // @ts-nocheck
 import Searchbar from './Searchbar/Searchbar.jsx';
-import css from '../styles.css';
 import ImageGallery from './ImageGallery/ImageGallery.jsx';
 import { Component } from 'react';
 import Button from './Button/Button.jsx';

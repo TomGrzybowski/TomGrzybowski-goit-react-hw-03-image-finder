@@ -1,4 +1,3 @@
-import Button from 'components/Button/Button.jsx';
 import { Component } from 'react';
 import ImageGalleryItem from './ImageGalleryItem.jsx';
 import PropTypes from 'prop-types';
