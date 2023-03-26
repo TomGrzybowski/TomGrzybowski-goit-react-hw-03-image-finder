@@ -74,11 +74,18 @@ class App extends Component {
       isModalShown: true,
       modalImageSource: pictureObject.largeImageURL,
     });
-    document.addEventListener('keydown', this.escFunction);
   };
 
   escFunction = event => {
     if (event.key === 'Escape') {
+      this.setState({
+        isModalShown: false,
+      });
+    }
+  };
+
+  handleOverlayClick = event => {
+    if (event.target.classList.contains('overlay')) {
       this.setState({
         isModalShown: false,
       });
@@ -92,7 +99,16 @@ class App extends Component {
 
     return (
       <>
-        {isModalShown ? <Modal src={modalImageSource} alt={modalAlt} /> : <></>}
+        {isModalShown ? (
+          <Modal
+            src={modalImageSource}
+            alt={modalAlt}
+            handleOverlayClick={this.handleOverlayClick}
+            escFunction={this.escFunction}
+          />
+        ) : (
+          <></>
+        )}
         <Searchbar handleSubmit={this.handleSubmit} />
 
         <ImageGallery

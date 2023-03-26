@@ -7,11 +7,19 @@ class Modal extends Component {
     src: PropTypes.string,
     alt: PropTypes.string,
   };
+
   componentDidMount() {
-    document.addEventListener('keydown', this.props.escFunction, false);
+    document.addEventListener('keydown', this.props.escFunction);
+    const overlay = document.querySelector('.overlay');
+
+    overlay.addEventListener('click', this.props.handleOverlayClick);
   }
+
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.props.escFunction, false);
+    console.log('Unmounted');
+    document.removeEventListener('keydown', this.props.escFunction);
+    const overlay = document.querySelector('.overlay');
+    overlay.removeEventListener('click', this.props.handleOverlayClick);
   }
 
   render() {
